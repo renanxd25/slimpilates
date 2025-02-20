@@ -86,6 +86,7 @@ export class ModalFormUserComponent {
     private formBuilder: FormBuilder,
     private userService: UsersService,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private firestore: AngularFirestore,
   ) {}
 
     ngOnInit() {
@@ -131,9 +132,7 @@ export class ModalFormUserComponent {
     // SALVAR USUÁRIO
     saveUser() {
       const objUserForm: User = this.formUser.getRawValue();
-
       if(this.data && this.data.name) {
-        
         // EDITAR USUÁRIOS
         this.userService.update(this.data.firebaseId, objUserForm).then(
           (response: any) => {
@@ -232,6 +231,32 @@ export class ModalFormUserComponent {
       });
 
     }
+
+    DateToday() {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const year = today.getFullYear();
+      
+      return `${day}/${month}/${year}`;
+  }
+
+  rematricula(){
+    //newDate
+    const newDate = this.formatDate(new Date()); // Obtém a nova data formatada
+    this.formUser.patchValue({ dataMatricula: newDate  }); // Atualiza o campo no formulário
+    if (this.formUser.valid) {
+      this.firestore.collection('users').doc(this.data.firebaseId).update(this.formUser.value) // Salva no Firestore
+        .then(() =>{
+          window.alert('Aluno Rematriculado');
+          this.closeModal();
+        })
+        .catch(error => console.error("Erro ao salvar:", error));
+    } else {
+      console.error("Formulário inválido!");
+    }
+  
+  }
 
     closeModal() { this.dialogRef.close(); }
 

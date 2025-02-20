@@ -184,8 +184,8 @@
 
          <div class="col-12">
           <button class="botao-primario float-end" [disabled]="!formUser.valid" (click)="saveUser()">salvar usuário</button>
+          <button class="botao-rematricula float-end" [disabled]="!formUser.valid" *ngIf="editUser" (click)="rematricula()">Rematricular aluno</button>
          </div>
-
     </form>
 
 
