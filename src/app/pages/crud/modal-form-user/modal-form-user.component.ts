@@ -201,16 +201,7 @@ export class ModalFormUserComponent {
       return `${day}/${month}/${year}`;
   }
 
-  isStudentDateValid(registrationDate:any) {
-    const currentDate:any = new Date();
-    const registeredDate:any = new Date(registrationDate);
-    
-    // Calcula a diferença em milissegundos e converte para dias
-    const diffInTime = currentDate - registeredDate;
-    const diffInDays = diffInTime / (1000 * 3600 * 24);
-    
-    return diffInDays <= 30;
-}
+
   
 
     // Preencher formulário para edição
