@@ -1,0 +1,25 @@
+export interface User {
+    name: string,
+    email: string,
+    telefone: string,
+    rua: string,
+    bairro: string,
+    numero: string,
+    complemento: string,
+    localidade: string,
+    estado: string,
+    cep: number,
+    firebaseId?: string,
+    healthPlan?: string,
+    dentalPlan?: string,
+    rg: number
+    orgao_Emissor: string,
+    estado_civil:string,
+    naturalidade: string,
+    nacionalidade: string,
+    profissao: string,
+    dataMatricula: Date
+    op1: string,
+    op2: string,
+    op3:string,
+}

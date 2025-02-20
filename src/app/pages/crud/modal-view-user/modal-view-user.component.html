@@ -1,0 +1,77 @@
+<div class="container-fluid p-3">
+    <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
+
+    <h1 class="titulo">Detalhes do usuário</h1>
+    <h2 class="subtitulo">Tenha uma visão mais detalhada deste usuário</h2>
+
+    <div class="row mt-3">
+        <div class="col-6">
+            <h4 class="titulo-informacao">Nome</h4>
+            <p class="informacao">{{userData.name}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">E-mail</h4>
+            <p class="informacao">{{userData.email}}</p>
+        </div>
+        <div class="col-6"> 
+            <h4 class="titulo-informacao">Telefone</h4>
+            <p class="informacao">
+                <a href="#" (click)="openWhatsApp(userData.telefone)">{{ userData.telefone }}</a>
+            </p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">RG</h4>
+            <p class="informacao">{{userData.rg}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Órgão Emissor</h4>
+            <p class="informacao">{{userData.orgao_Emissor}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Estado Civil</h4>
+            <p class="informacao">{{userData.estado_civil}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Naturalidade</h4>
+            <p class="informacao">{{userData.naturalidade}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Estado Civil</h4>
+            <p class="informacao">{{userData.estado_civil}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Estado</h4>
+            <p class="informacao">{{userData.estado}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Bairro</h4>
+            <p class="informacao">{{userData.bairro}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Rua</h4>
+            <p class="informacao">{{userData.rua}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Ja fez pilates?</h4>
+            <p class="informacao">{{userData.op1}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">De que forma nos conheceu?</h4>
+            <p class="informacao">{{userData.op2}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Qual o objetivo do pilates?</h4>
+            <p class="informacao">{{userData.op3}}</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">GymPass</h4>
+            <p class="informacao" *ngIf="userData.healthPlan">{{userData.healthPlan}}</p>
+            <p class="informacao" *ngIf="!userData.healthPlan">Não possui</p>
+        </div>
+        <div class="col-6">
+            <h4 class="titulo-informacao">Matricula tradicional</h4>
+            <p class="informacao" *ngIf="userData.dentalPlan">{{userData.dentalPlan}}</p>
+            <p class="informacao" *ngIf="!userData.dentalPlan">Não possui</p>
+        </div>
+    </div>
+</div>

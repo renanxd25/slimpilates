@@ -1,0 +1,42 @@
+<app-menu></app-menu>
+<div class="container">
+  <div class="content">
+    <div class="form-container">
+      <!-- Seleção de Data -->
+      <mat-form-field appearance="outline">
+        <mat-label>Selecione uma data</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Seleção de Horário -->
+      <mat-form-field appearance="outline">
+        <mat-label>Selecione um horário</mat-label>
+        <input matInput type="time" [(ngModel)]="selectedTime">
+      </mat-form-field>
+
+      <!-- Nome do Aluno -->
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do aluno</mat-label>
+        <input matInput [(ngModel)]="studentName">
+      </mat-form-field>
+
+      <!-- Botão para adicionar ou atualizar aula -->
+      <button mat-raised-button color="primary" (click)="addOrEditClass()">
+        {{ editingEventId ? 'Atualizar Aula' : 'Agendar Aula' }}
+      </button>
+
+      <!-- Botão para cancelar edição -->
+      <button mat-raised-button color="warn" *ngIf="editingEventId" (click)="resetForm()">Cancelar Edição</button>
+
+      <!-- Botão para excluir aula -->
+      <button mat-raised-button color="accent" *ngIf="editingEventId" (click)="deleteClass()">Excluir Aula</button>
+    </div>
+
+    <!-- Calendário -->
+  </div>
+  <div class="calendar-container">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+</div>

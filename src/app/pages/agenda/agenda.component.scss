@@ -1,0 +1,80 @@
+/* Contêiner principal */
+.container {
+    display: flex;
+    min-height: 100vh; /* Ocupa toda a altura da tela */
+  }
+  
+  /* Menu lateral */
+  app-menu {
+    width: 100px; /* Largura fixa do menu */
+    //min-width: 250px; /* Garante que não encolha */
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixa o menu no canto esquerdo */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1; /* Garante que o menu fique acima do conteúdo */
+  }
+  
+  /* Conteúdo principal */
+  .content {
+    flex: 1; /* Ocupa o espaço restante */
+    margin-left: 100px; /* Desloca o conteúdo para a direita, respeitando o menu */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #f9f9f9; /* Cor de fundo para diferenciar do menu */
+    min-height: 100vh; /* Ocupa toda a altura da tela */
+  }
+  
+  /* Formulário responsivo */
+  .form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    max-width: 100%; /* Ocupa toda a largura disponível */
+  }
+  
+  mat-form-field {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  /* Estilização do botão */
+  button {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  /* Calendário responsivo */
+  .calendar-container {
+    width: 100%;
+    max-width: 100%; /* Ocupa toda a largura disponível */
+    height: calc(100vh - 200px); /* Altura ajustável */
+    margin-top: 20px; /* Espaçamento acima do calendário */
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Menu e conteúdo em coluna */
+    }
+  
+    app-menu {
+      width: 100%; /* Menu ocupa a largura total */
+      min-width: 100%;
+      position: static; /* Remove a posição fixa em telas menores */
+      box-shadow: none;
+    }
+  
+    .content {
+      margin-left: 0; /* Remove o deslocamento à direita */
+      padding: 10px; /* Reduz o padding em telas menores */
+    }
+  
+    .calendar-container {
+      height: auto; /* Altura automática em telas menores */
+    }
+  }
+
+  

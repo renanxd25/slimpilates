@@ -1,0 +1,15 @@
+<div class="area-login-background d-none d-md-block"></div>
+
+<div class="area-form">
+    <form>
+        <!-- Adicionando a logo acima do título -->
+        <img src="assets/logosemfundo.png" alt="Logo Slim Pilates" class="logoslim">
+
+        <!--<h1 class="titulo">Slim Pilates</h1>-->
+        <h2 class="subtitulo2">Equilíbrio, força e bem-estar – transforme seu corpo com o Pilates!</h2>
+
+        <input [(ngModel)]="userName" [ngModelOptions]="{standalone: true}"  class="input-form" type="text" placeholder="Digite seu nome">
+
+        <app-button textButton="Acessar" size="100" (click)="login()"></app-button>
+    </form>
+</div>
